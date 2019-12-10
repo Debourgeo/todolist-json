@@ -19,6 +19,7 @@ include 'assets/php/functions.php';
         <?php
 /* Call here the function for the "done list" */
 ?>
+        <?php echo_list_of_done();?>
     </ul>
     <h2>Add a task:</h2>
     <form action="assets/php/form.php" method="post">
