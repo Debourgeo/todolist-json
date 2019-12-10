@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>To Do list</title>
-    <meta name="description" content="Brice & Denis' To Do list for BeCode">
-</head>
-<body>
+<?php
+include 'assets/php/header.php';
+include 'assets/php/functions.php';
+?>
+
     <h1>To Do List</h1>
     <h2>To Do:</h2>
     <ul>
@@ -22,9 +17,11 @@
 ?>
     </ul>
     <h2>Add a task:</h2>
-    <form action="" method="post">
+    <form action="assets/php/form.php" method="post">
     <input type="text" placeholder="Your task to add" name="task_to_add" value="">
     <button id="submit">add the task</button>
     </form>
-</body>
-</html>
+
+    <?php
+include 'assets/php/footer.php';
+?>
