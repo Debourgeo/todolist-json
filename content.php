@@ -23,6 +23,8 @@
     </ul>
     <h2>Add a task:</h2>
     <form action="" method="post">
+    <input type="text" placeholder="Your task to add" name="task_to_add" value="">
+    <button id="submit">add the task</button>
     </form>
 </body>
 </html>
