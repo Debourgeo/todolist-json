@@ -1,0 +1,141 @@
+// Variables
+$primaryColor : #15c5bd;
+$secondaryColor : #303030;
+$linkColor: #FFF;
+
+
+// font import
+@font-face {
+  font-family: 'bellota';
+  src: url('../fonts/Bellota-Regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bellota';
+  src: url('../fonts/Bellota-Bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: 'bellota', Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &#accueil {
+    background: url('../img/raspberry_wall_paper.jpg') center center;
+    background-size: cover;
+
+    .jumbotron {
+      background-color: rgba(233, 236, 239, 0.7);
+    }
+  }
+
+  .bg-color {
+    background-color: $primaryColor;
+    color: $linkColor;
+  }
+
+  .bg-color:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+
+    &:hover {
+      color: $linkColor;
+    }
+  }
+
+  nav {
+    a {
+      color: $linkColor;
+
+      &:hover {
+        text-decoration: none;
+        color: $linkColor;
+      }
+    }
+  }
+
+  .navbar-dark .navbar-nav {
+    .nav-link {
+      color: $linkColor;
+
+      &:hover {
+        color: $secondaryColor;
+        text-decoration: none;
+      }
+
+    }
+
+    .active .nav-link {
+      color: $secondaryColor;
+    }
+  }
+
+  .btn.btn-primary.bg-color {
+    background-color: $primaryColor;
+    border-color: $primaryColor;
+
+    &:hover {
+      background-color: $secondaryColor;
+      border-color: $secondaryColor;
+      color: $primaryColor;
+    }
+  }
+
+  .card {
+    transition: 0.2s ease;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+
+  .error {
+    color: rgba(207, 85, 83, 0.9);
+    font-size: 0.8rem;
+  }
+
+  .form-error {
+    background-color: rgba(207, 85, 83, 0.3);
+    border: 1px solid rgba(207, 85, 83, 0.9);
+  }
+
+
+
+  footer {
+    background-color: $primaryColor;
+    color: $linkColor;
+
+    ul li {
+      list-style-type: none;
+      white-space: nowrap;
+
+      .fab {
+        color: $linkColor;
+
+        &:hover {
+          color: $secondaryColor;
+        }
+      }
+    }
+  }
+}
+
+form>div#maya {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: -1000 !important;
+  opacity: 0;
+  height: 0;
+  width: 0 !important;
+}
+
+// Remove the banner on webhost
+img [src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+  display: none;
+}
