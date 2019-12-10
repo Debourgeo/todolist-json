@@ -6,9 +6,13 @@ include 'assets/php/functions.php';
     <h1>To Do List</h1>
     <h2>To Do:</h2>
     <ul>
-        <?php
-/* Call here the function for the "to do list" */
-?>
+        <!--
+        forme de l'output:
+        <input type="checkbox" name="task#X"/>
+        <label>La tâche</label>
+        -->
+        <!-- /* Call here the function for the "to do list" */ -->
+        <?php echo_list_of_todo();?>
     </ul>
     <h2>Done:</h2>
     <ul>
@@ -18,8 +22,8 @@ include 'assets/php/functions.php';
     </ul>
     <h2>Add a task:</h2>
     <form action="assets/php/form.php" method="post">
-    <input type="text" placeholder="Your task to add" name="task_to_add" value="">
-    <button id="submit">add the task</button>
+        <textarea name="task_to_add" placeholder="Your task to add" id="task_to_add" cols="30" rows="10"></textarea>
+        <button id="submit">add the task</button>
     </form>
 
     <?php
