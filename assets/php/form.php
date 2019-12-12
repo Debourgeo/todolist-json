@@ -70,9 +70,11 @@ function encode_to_json() {
     $array_data = form_sanitizion_and_validation();
     $data = array_key_first($array_data);
     echo $data;
-
+    $old_json_data = get_json_data("../json/todo.json", true);
+    print_r($old_json_data);
     $json_data = json_encode($data, JSON_UNESCAPED_UNICODE);
     file_put_contents("../json/todo.json", $json_data);
 }
 
+echo '<pre>';
 encode_to_json();
