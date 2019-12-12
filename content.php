@@ -27,6 +27,7 @@ include 'assets/php/functions.php';
         <button id="submit">add the task</button>
     </form>
 
+    <script src="assets/js/script.js"></script>
     <?php
 include 'assets/php/footer.php';
 ?>
