@@ -1,12 +1,12 @@
 {
-	"todo": [
-		"aller chez ma grand mère",
-		"manger de la farine",
-		"dire bonjour à Denis",
-		"Manger 5 fruits et legumes par jour"
-	],
-	"done": [
-		"une chose que j'ai déjà faite",
-		"une autre chose que j'ai déjà faite, mort de lol"
-	]
+    "todo": [
+        "aller chez ma grand mère",
+        "manger de la farine",
+        "dire bonjour à Denis",
+        "Manger 5 fruits et legumes par jour"
+    ],
+    "done": [
+        "une chose que j'ai déjà faite",
+        "une autre chose que j'ai déjà faite, mort de lol"
+    ]
 }

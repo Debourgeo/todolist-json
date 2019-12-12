@@ -1,5 +1,7 @@
 <?php 
 
+include 'functions.php';
+
 function form_sanitizion_and_validation() 
 {
     $arr_sanitizers = [
@@ -36,18 +38,18 @@ function form_sanitizion_and_validation()
 
             $arr_errors[$key] = "Invalid field";
             $is_form_valid = false;
-            // echo "false ";
+            echo "false ";
 
         } else {
-
-            // echo "true ";
+            
+            echo "true ";
 
         }
     }
 
     if ($is_form_valid) {
 
-        // echo "alright ";
+        echo "alright ";
 
         foreach ($arr_errors as $key => $values) {
             $arr_errors[$key] == null;
@@ -57,7 +59,20 @@ function form_sanitizion_and_validation()
         
     } else {
 
-        // echo "check your content ";
+        echo "check your content ";
 
     }
 }
+
+
+function encode_to_json() {
+    
+    $array_data = form_sanitizion_and_validation();
+    $data = array_key_first($array_data);
+    echo $data;
+
+    $json_data = json_encode($data, JSON_UNESCAPED_UNICODE);
+    file_put_contents("../json/todo.json", $json_data);
+}
+
+encode_to_json();
