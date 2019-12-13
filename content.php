@@ -19,7 +19,7 @@ include 'assets/php/functions.php';
             <?php list_of_todo_or_done('done');?>
         </ul>
         <h2>Add a task:</h2>
-        <form action="assets/php/form.php" method="post">
+        <form action="assets/php/Form_add_task.php" method="post">
             <textarea name="task_to_add" placeholder="Your task to add" id="task_to_add" cols="30" rows="10"></textarea>
             <button id="submit">add the task</button>
         </form>
