@@ -20,9 +20,14 @@ function list_of_todo_or_done($name_of_data_to_display)
     // Get the part of the data that we want
     $wanted_data = $data["$name_of_data_to_display"];
 
+    if ($name_of_data_to_display == "todo") {
+        $id = "todo";
+    } else {
+        $id = "done";
+    }
     // Display the data
     foreach ($wanted_data as $key => $value) {
-        echo "<input type='checkbox' name='task#X'/>" . "<li>" . "$value" . "</li>";
+        echo "<li>" . "<input type='checkbox' name='$id$key' id='$id$key' />" . "<label>" . "$value" . "</label>" . "</li>";
     }
 }
 
