@@ -27,7 +27,7 @@ function list_of_todo_or_done($name_of_data_to_display)
     }
     // Display the data
     foreach ($wanted_data as $key => $value) {
-        echo "<li>" . "<input type='checkbox' name='$id$key' id='$id$key' />" . "<label>" . "$value" . "</label>" . "</li>";
+        echo "<li>" . "<input type='checkbox' name='$key' id='$id$key' />" . "<label>" . "$value" . "</label>" . "</li>";
     }
 }
 
