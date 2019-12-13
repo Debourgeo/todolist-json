@@ -9,7 +9,7 @@ include 'assets/php/functions.php';
         <?php list_of_todo_or_done('todo');?>
         <!--
         forme de l'output:
-        <input type="checkbox" name="task#X"/>
+        <input type="checkbox" name="task#X" onclick="checkComplition(this)"/>
         <label>La tâche</label>
         -->
     </ul>
