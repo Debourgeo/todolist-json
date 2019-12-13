@@ -12,4 +12,3 @@ print_r($new_task);
 encode_to_json($new_task, "todo");
 
 redirect('../../content.php');
-
