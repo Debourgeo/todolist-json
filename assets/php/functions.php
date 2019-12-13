@@ -110,3 +110,11 @@ function encode_to_json($data, $task = "todo")
     // in the targeted file, erase the old json content by the new json object
     file_put_contents($json_file, $new_json_data);
 }
+
+function redirect($url)
+{
+    ob_start();
+    header('Location: ' . $url);
+    ob_end_flush();
+    exit();
+}
