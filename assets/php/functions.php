@@ -93,7 +93,7 @@ function form_sanitizion_and_validation()
     }
 }
 
-function encode_to_json($data, $task = "todo")
+function add_task_to_json($data, $task = "todo")
 {
     // $data = something to push in the json
     // $task should be "done" or "todo"

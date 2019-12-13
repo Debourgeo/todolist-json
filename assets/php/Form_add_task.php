@@ -9,6 +9,6 @@ echo '<pre>';
 echo "ça marche d'écrire";
 print_r($new_task);
 
-encode_to_json($new_task, "todo");
+add_task_to_json($new_task, "todo");
 
 redirect('../../content.php');
