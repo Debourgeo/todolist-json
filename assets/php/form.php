@@ -64,17 +64,25 @@ function form_sanitizion_and_validation()
     }
 }
 
-
 function encode_to_json() {
     
-    $array_data = form_sanitizion_and_validation();
-    $data = array_key_first($array_data);
-    echo $data;
-    $old_json_data = get_json_data("../json/todo.json", true);
-    print_r($old_json_data);
-    $json_data = json_encode($data, JSON_UNESCAPED_UNICODE);
-    file_put_contents("../json/todo.json", $json_data);
+    $json_file = "../json/todo.json";
+
+    // gets the data after sanitization and validation
+    $arr_data = form_sanitizion_and_validation();
+    // gets the first (and only) value of the array
+    $data = array_values($arr_data)[0];
+    // gets the data from the todo.json
+    $old_json_data = get_json_data($json_file, true);
+    // pushes the data into the json we just got
+    array_push($old_json_data['todo'], $data);
+    // encodes a new json object based on the new data
+    $new_json_data = json_encode($old_json_data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    // sends the new json object in the targeted file
+    file_put_contents($json_file, $new_json_data);
 }
+
+
 
 echo '<pre>';
 encode_to_json();
