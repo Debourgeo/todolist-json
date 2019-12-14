@@ -6,3 +6,13 @@
 
 
 // Here AJAX submission
+
+/*
+
+Prevent submission by button
+Submission by ticking the checkbox
+
+Prevent the screen refresh
+Update the data 
+
+*/
