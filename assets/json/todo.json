@@ -1,7 +1,6 @@
 {
     "todo": [
         "aller chez ma grand mère",
-        "manger de la farine",
         "mabite",
         "dire bbonjour",
         "dire bonjour",
@@ -14,6 +13,7 @@
         "lolilol"
     ],
     "done": [
+        "manger de la farine",
         "il a pas dit bonjour",
         "une autre chose que j'ai déjà faite, mort de lol"
     ]
