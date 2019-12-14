@@ -67,18 +67,11 @@ function form_sanitizion_and_validation()
 
             $arr_errors[$key] = "Invalid field";
             $is_form_valid = false;
-            echo "false ";
-
-        } else {
-
-            echo "true ";
 
         }
     }
 
     if ($is_form_valid) {
-
-        echo "alright ";
 
         foreach ($arr_errors as $key => $values) {
             $arr_errors[$key] == null;
