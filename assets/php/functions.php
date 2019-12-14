@@ -14,7 +14,6 @@ function get_json_data($path_to_json, $convert_object_to_array = true)
 function list_of_todo_or_done($name_of_data_to_display)
 {
     // The value of $name_of_data_to_display should be "todo" or "done"
-
     // Read the data
     $data = get_json_data('assets/json/todo.json', true);
     // Get the part of the data that we want

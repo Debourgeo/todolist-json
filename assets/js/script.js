@@ -17,5 +17,14 @@ Update the data
 
 */
 
-let checkboxTodo = document.querySelectorAll('input.todo');
-console.log(checkboxTodo);
+let checkBoxForm = document.getElementById('checkBoxForm');
+
+// Desactivate the submit button and hiding it.
+// The form will be submit by ticking the checkbox
+let button = document.getElementById('submit_add_archive');
+button.addEventListener("click", e => e.preventDefault());
+button.style.display = "none";
+
+
+
+// checkBoxForm.addEventListener("submit", e => e.preventDefault());
