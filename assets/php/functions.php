@@ -21,13 +21,14 @@ function list_of_todo_or_done($name_of_data_to_display)
     $wanted_data = $data["$name_of_data_to_display"];
 
     if ($name_of_data_to_display == "todo") {
-        $id = "todo";
+        $class = "todo";
     } else {
-        $id = "done";
+        $class = "done";
     }
+    $id = $class . $key;
     // Display the data
     foreach ($wanted_data as $key => $value) {
-        echo "<li>" . "<input type='checkbox' name='$key' id='$id$key' />" . "<label>" . "$value" . "</label>" . "</li>";
+        echo "<li>" . "<input type='checkbox' name='$key' id='$id' class='$class' />" . "<label>" . "$value" . "</label>" . "</li>";
     }
 }
 
