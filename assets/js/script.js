@@ -16,3 +16,6 @@ Prevent the screen refresh
 Update the data 
 
 */
+
+let checkboxTodo = document.querySelectorAll('input.todo');
+console.log(checkboxTodo);
