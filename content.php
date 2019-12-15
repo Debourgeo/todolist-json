@@ -6,7 +6,7 @@ include 'assets/php/functions.php';
 
         <h1>To Do List</h1>
         <h2>To Do:</h2>
-        <form action="assets/php/Form_task_to_archive.php" method="post">
+        <form id="checkBoxForm" action="assets/php/Form_task_to_archive.php" method="post">
             <ul>
                 <?php list_of_todo_or_done('todo');?>
                 <!--
