@@ -1,11 +1,6 @@
 {
     "todo": [
-        "aller chez ma grand mère",
-        "manger de la farine",
-        "mabite",
-        "dire bbonjour",
         "dire bonjour",
-        "lui niquer sa mère",
         "blob",
         "ENCORE UN NULL",
         "dire bonjour à Denis",
@@ -14,7 +9,6 @@
         "lolilol"
     ],
     "done": [
-        "il a pas dit bonjour",
-        "une autre chose que j'ai déjà faite, mort de lol"
+        "dire bonjour"
     ]
 }

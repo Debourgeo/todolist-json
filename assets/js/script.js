@@ -26,5 +26,7 @@ button.addEventListener("click", e => e.preventDefault());
 button.style.display = "none";
 
 
-
+document.querySelectorAll(".todo").forEach(checkBoxTodo => {
+    checkBoxTodo.addEventListener("click", () => checkBoxForm.submit());
+});
 // checkBoxForm.addEventListener("submit", e => e.preventDefault());
