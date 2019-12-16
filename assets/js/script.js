@@ -5,14 +5,19 @@ function onDrop(event) {
 
     let draggableElement = document.getElementById(id);
     let dropzone = event.target;
-    let parent = dropzone.parentNode;
-    if (dropzone.classList.contains("label")) {
-        parent.parentNode.insertBefore(draggableElement, parent.nextSibling);
-    } else {
-        dropzone.parentNode.insertBefore(
-            draggableElement,
-            dropzone.nextSibling
-        );
+    let dropzoneParent = dropzone.parentNode;
+    if (dropzone.classList.contains("dropable")) {
+        if (dropzone.classList.contains("label")) {
+            dropzoneParent.parentNode.insertBefore(
+                draggableElement,
+                dropzoneParent.nextSibling
+            );
+        } else {
+            dropzone.parentNode.insertBefore(
+                draggableElement,
+                dropzone.nextSibling
+            );
+        }
     }
 }
 
