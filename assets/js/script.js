@@ -27,22 +27,70 @@ button.style.display = "none";
 
 
 
-const ticking = async () => {
-    try {
-        const Data = new FormData(checkBoxForm);
-        let sendRequest = await fetch("assets/php/Form_task_to_archive.php", {
-            method: "POST",
-            body: Data
-        });
-        let answer = await sendRequest.text();
-        console.log(answer);
 
+
+
+
+
+
+
+
+const movingByTick = () => {
+    console.log(checkBoxForm[0].parentNode);
+
+}
+movingByTick();
+
+
+
+
+
+/// ***********************************************************************************
+/// ***********************************************************************************
+/// ***********************************************************************************
+/// ***********************************************************************************
+
+const ticking = () => {
+    // checkBoxForm.submit();
+    try {
+        const data = new FormData(checkBoxForm);
+        fetch("assets/php/Form_task_to_archive.php", {
+            method: "POST",
+            body: data
+        });
     } catch (error) {
         console.error(error);
     }
 }
 
+const reorganization = (list) => {
+    let theClass;
+    if (list == "todo") {
+        theClass = "todo";
+        idForm = "#checkBoxForm";
+    } else {
+        theClass = "done";
+        idForm = "#doneForm";
+    }
+    target = document.querySelectorAll(`${idForm} ul li input`);
+    target.forEach((input, i) => {
+        input.name = `${i}`;
+        input.id = `${theClass}${i}`;
+        input.class = `${theClass}`;
+    })
+}
 
 document.querySelectorAll(".todo").forEach(checkBoxTodo => {
-    checkBoxTodo.addEventListener("click", () => ticking());
+    checkBoxTodo.addEventListener("click", () => {
+        // Sending form
+        ticking();
+        // Moving the node
+        const toMove = checkBoxTodo.parentNode;
+        let target = document.querySelector('#doneForm ul li');
+        target.parentNode.insertBefore(toMove, target);
+        // Reorganization !
+        reorganization("todo");
+        reorganization("done");
+
+    });
 });

@@ -2,7 +2,7 @@
 
 include 'functions.php';
 
-$array = filter_input_array(INPUT_POST);
+$array = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 // Prevent a bug to happen if the form is submit without any variable
 if (!empty($array)) {
