@@ -25,29 +25,24 @@ const button = document.getElementById('submit_add_archive');
 button.addEventListener("click", e => e.preventDefault());
 button.style.display = "none";
 
-const arrayOfTodo = document.querySelectorAll(".todo");
-// console.log(arrayOfTodo);
 
 
 const ticking = async () => {
-    checkBoxForm.submit()
-    // try {
-    //     let modificationRequest = await fetch(
-    //         "http://0.0.0.0:8000/todolist-json/assets/php/Form_task_to_archive.php", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-type": "multipart/form-data",
-    //             },
-    //             body: new FormData(document.getElementById("checkBoxForm"))
-    //         }
-    //     )
-    // } catch (error) {
-    //     console.error(error);
-    // }
+    try {
+        const Data = new FormData(checkBoxForm);
+        let sendRequest = await fetch("assets/php/Form_task_to_archive.php", {
+            method: "POST",
+            body: Data
+        });
+        let answer = await sendRequest.text();
+        console.log(answer);
+
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 
-
-arrayOfTodo.forEach(checkBoxTodo => {
+document.querySelectorAll(".todo").forEach(checkBoxTodo => {
     checkBoxTodo.addEventListener("click", () => ticking());
 });
