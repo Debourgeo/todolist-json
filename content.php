@@ -7,7 +7,7 @@ include 'assets/php/functions.php';
         <h1>To Do List</h1>
         <h2>To Do:</h2>
         <form id="checkBoxForm" action="assets/php/Form_task_to_archive.php" method="post">
-            <ul ondragover='onDragOver(event);' ondrop='onDrop(event);'>
+            <ul class="pt-3 ul dropable" ondragover='onDragOver(event);' ondrop='onDrop(event);'>
                 <?php list_of_todo_or_done('todo');?>
                 <!--
                 forme de l'output:
@@ -20,7 +20,7 @@ include 'assets/php/functions.php';
         </form>
         <h2>Done:</h2>
         <form id="doneForm" action="assets/php/Form_task_to_archive.php" method="post">
-            <ul ondragover='onDragOver(event);' ondrop='onDrop(event);'>
+            <ul class="pt-3 ul dropable" ondragover='onDragOver(event);' ondrop='onDrop(event);'>
                 <?php list_of_todo_or_done('done');?>
             </ul>
         </form>
