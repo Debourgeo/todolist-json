@@ -66,11 +66,13 @@ const reorganization = (list) => {
         theClass = "done";
         idForm = "#doneForm";
     }
-    target = document.querySelectorAll(`${idForm} ul li input`);
+    let target = document.querySelectorAll(`${idForm} ul li input`);
+    let parentTarget = target.parentNode
     target.forEach((input, i) => {
         input.name = `${i}`;
         input.id = `${theClass}${i}`;
         input.class = `${theClass}`;
+        parentTarget.id = `li${theClass}${i}`
     })
 }
 
