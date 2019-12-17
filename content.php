@@ -17,7 +17,6 @@ include 'assets/php/functions.php';
                 </li>
                 -->
             </ul>
-            <button id="submit_add_archive">Archive</button>
         </form>
         <h2>Done:</h2>
         <form id="doneForm" action="assets/php/Form_task_to_archive.php" method="post">

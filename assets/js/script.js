@@ -17,7 +17,6 @@ function onDrop(event) {
                 dropzone.nextSibling
             );
         }
-
     }
 }
 
@@ -41,18 +40,15 @@ Update the data
 
 */
 
-const checkBoxForm = document.getElementById('checkBoxForm');
+const checkBoxForm = document.getElementById("checkBoxForm");
 
 // Desactivate the submit button and hiding it.
 // The form will be submit by ticking the checkbox
-const button = document.getElementById('submit_add_archive');
-button.addEventListener("click", e => e.preventDefault());
-button.style.display = "none";
 
 // Remake all the frame of the list
 const reorganization = () => {
     let arrlist = ["todo", "done"];
-    arrlist.forEach((list) => {
+    arrlist.forEach(list => {
         let theClass;
         let idForm;
         if (list == "todo") {
@@ -68,10 +64,10 @@ const reorganization = () => {
             input.name = `${i}`;
             input.id = `${theClass}${i}`;
             input.class = `${theClass}`;
-            parentTarget.id = `li${theClass}${i}`
-        })
-    })
-}
+            parentTarget.id = `li${theClass}${i}`;
+        });
+    });
+};
 
 document.querySelectorAll(".todo").forEach(checkBoxTodo => {
     checkBoxTodo.addEventListener("click", () => {
@@ -84,7 +80,7 @@ document.querySelectorAll(".todo").forEach(checkBoxTodo => {
             });
             // Moving the node to represent the sent data.
             const toMove = checkBoxTodo.parentNode;
-            let target = document.querySelector('#doneForm ul li');
+            let target = document.querySelector("#doneForm ul li");
             target.parentNode.insertBefore(toMove, target);
             // Reorganization of the data: name, id, class!
             reorganization();
