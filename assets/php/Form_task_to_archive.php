@@ -25,4 +25,4 @@ if (!empty($array)) {
     // in the targeted file, erase the old json content by the new json object
     file_put_contents($json_file, $updated_json_data);
 }
-// redirect('../../content.php');
+redirect('../../content.php');

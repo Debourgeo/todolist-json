@@ -34,18 +34,26 @@ function form_sanitizion_and_validation()
 {
     $arr_sanitizers = [
         'task_to_add' => FILTER_SANITIZE_STRING,
+        'oldID' => FILTER_SANITIZE_STRING,
+        'newID' => FILTER_SANITIZE_STRING,
     ];
 
     $arr_validation_filters = [
         'task_to_add' => FILTER_VALIDATE_REGEXP,
+        'oldID' => FILTER_VALIDATE_REGEXP,
+        'newID' => FILTER_VALIDATE_REGEXP,
     ];
 
     $arr_regexp = [
         'task_to_add' => '/[\w\W]{2,200}/',
+        'oldID' => '/^li[td]o[dn][oe]\d{1,3}$/',
+        'newID' => '/^li[td]o[dn][oe]\d{1,3}$/',
     ];
 
     $arr_errors = [
         'task_to_add' => null,
+        'oldID' => null,
+        'newID' => null,
     ];
 
     $sanitized_form = filter_input_array(INPUT_POST, $arr_sanitizers);
