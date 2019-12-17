@@ -24,9 +24,10 @@ function list_of_todo_or_done($name_of_data_to_display)
     } else {
         $class = "done";
     }
+
     // Display the data
     foreach ($wanted_data as $key => $value) {
-        echo "<li>" . "<input type='checkbox' name='$key' id='$class$key' class='$class' />" . "<label>" . "$value" . "</label>" . "</li>";
+        echo "<li id='li$class$key' class='li dropable' draggable='true' ondragstart='onDragStart(event);'>" . "<input type='checkbox' name='$key' id='$class$key' class='$class' />" . "<label class='label dropable'>" . "$value" . "</label>" . "</li>";
     }
 }
 

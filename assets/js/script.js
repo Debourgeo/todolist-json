@@ -1,16 +1,40 @@
-// Here Drag and grop the box (drag les list)
+// Function to submit the form
 
+function onDrop(event) {
+    let id = event.dataTransfer.getData("text");
 
+    let draggableElement = document.getElementById(id);
+    let dropzone = event.target;
+    let dropzoneParent = dropzone.parentNode;
+    if (dropzone.classList.contains("dropable")) {
+        if (dropzone.classList.contains("label")) {
+            dropzoneParent.parentNode.insertBefore(
+                draggableElement,
+                dropzoneParent.nextSibling
+            );
+        } else {
+            dropzone.parentNode.insertBefore(
+                draggableElement,
+                dropzone.nextSibling
+            );
+        }
+    }
+}
 
+function onDragOver(event) {
+    event.preventDefault();
+}
 
-
+function onDragStart(event) {
+    event.dataTransfer.setData("text/plain", event.target.id);
+}
 
 // Here AJAX submission
 
 /*
 
-Prevent submission by button                         ok
-Submission by ticking the checkbox          to do
+Prevent submission by button
+Submission by ticking the checkbox
 
 Prevent the screen refresh
 Update the data 
