@@ -1,20 +1,21 @@
 {
     "todo": [
-        "aller chez ma grand mère",
-        "manger de la farine",
         "mabite",
         "dire bbonjour",
-        "dire bonjour",
-        "lui niquer sa mère",
-        "blob",
-        "ENCORE UN NULL",
-        "dire bonjour à Denis",
-        "Manger 5 fruits et legumes par jour",
+        "manger de la farine",
         "une chose que j'ai déjà faite",
-        "lolilol"
+        "lui niquer sa mère",
+        "il a pas dit bonjour",
+        "dire bonjour à Denis",
+        "dire bonjour"
     ],
     "done": [
-        "il a pas dit bonjour",
+        "Manger 5 fruits et legumes par jour",
+        "ENCORE UN NULL",
+        "prendre le train",
+        "blob",
+        "aller chez ma grand mère",
+        "lolilol",
         "une autre chose que j'ai déjà faite, mort de lol"
     ]
 }
