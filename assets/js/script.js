@@ -27,41 +27,11 @@ button.style.display = "none";
 
 
 
-
-
-
-
-
-
-
-
-const movingByTick = () => {
-    console.log(checkBoxForm[0].parentNode);
-
-}
-movingByTick();
-
-
-
-
-
 /// ***********************************************************************************
 /// ***********************************************************************************
 /// ***********************************************************************************
 /// ***********************************************************************************
 
-const ticking = () => {
-    // checkBoxForm.submit();
-    try {
-        const data = new FormData(checkBoxForm);
-        fetch("assets/php/Form_task_to_archive.php", {
-            method: "POST",
-            body: data
-        });
-    } catch (error) {
-        console.error(error);
-    }
-}
 
 const reorganization = (list) => {
     let theClass;
@@ -82,15 +52,22 @@ const reorganization = (list) => {
 
 document.querySelectorAll(".todo").forEach(checkBoxTodo => {
     checkBoxTodo.addEventListener("click", () => {
-        // Sending form
-        ticking();
-        // Moving the node
-        const toMove = checkBoxTodo.parentNode;
-        let target = document.querySelector('#doneForm ul li');
-        target.parentNode.insertBefore(toMove, target);
-        // Reorganization !
-        reorganization("todo");
-        reorganization("done");
-
+        // Sending formData to the back to operate on the DataBase
+        try {
+            const data = new FormData(checkBoxForm);
+            fetch("assets/php/Form_task_to_archive.php", {
+                method: "POST",
+                body: data
+            });
+            // Moving the node to represent the sent data.
+            const toMove = checkBoxTodo.parentNode;
+            let target = document.querySelector('#doneForm ul li');
+            target.parentNode.insertBefore(toMove, target);
+            // Reorganization of the data: name, id, class!
+            reorganization("todo");
+            reorganization("done");
+        } catch (error) {
+            console.error(error);
+        }
     });
 });
