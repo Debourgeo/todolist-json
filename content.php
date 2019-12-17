@@ -20,9 +20,11 @@ include 'assets/php/functions.php';
             <button id="submit_add_archive">Archive</button>
         </form>
         <h2>Done:</h2>
-        <ul>
-            <?php list_of_todo_or_done('done');?>
-        </ul>
+        <form id="doneForm" action="assets/php/Form_task_to_archive.php" method="post">
+            <ul>
+                <?php list_of_todo_or_done('done');?>
+            </ul>
+        </form>
         <h2>Add a task:</h2>
         <form action="assets/php/Form_add_task.php" method="post">
             <textarea name="task_to_add" placeholder="Your task to add" id="task_to_add" cols="30" rows="10"></textarea>

@@ -2,7 +2,7 @@
 
 include 'functions.php';
 
-$array = filter_input_array(INPUT_POST);
+$array = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 // Prevent a bug to happen if the form is submit without any variable
 if (!empty($array)) {
@@ -25,4 +25,4 @@ if (!empty($array)) {
     // in the targeted file, erase the old json content by the new json object
     file_put_contents($json_file, $updated_json_data);
 }
-redirect('../../content.php');
+// redirect('../../content.php');
