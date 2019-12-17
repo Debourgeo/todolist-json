@@ -2,7 +2,6 @@
 
 function onDrop(event) {
     let id = event.dataTransfer.getData("text");
-
     let draggableElement = document.getElementById(id);
     let dropzone = event.target;
     let dropzoneParent = dropzone.parentNode;
@@ -18,6 +17,7 @@ function onDrop(event) {
                 dropzone.nextSibling
             );
         }
+
     }
 }
 
@@ -49,28 +49,27 @@ const button = document.getElementById('submit_add_archive');
 button.addEventListener("click", e => e.preventDefault());
 button.style.display = "none";
 
-
-
-/// ***********************************************************************************
-/// ***********************************************************************************
-/// ***********************************************************************************
-/// ***********************************************************************************
-
-
-const reorganization = (list) => {
-    let theClass;
-    if (list == "todo") {
-        theClass = "todo";
-        idForm = "#checkBoxForm";
-    } else {
-        theClass = "done";
-        idForm = "#doneForm";
-    }
-    target = document.querySelectorAll(`${idForm} ul li input`);
-    target.forEach((input, i) => {
-        input.name = `${i}`;
-        input.id = `${theClass}${i}`;
-        input.class = `${theClass}`;
+// Remake all the frame of the list
+const reorganization = () => {
+    let arrlist = ["todo", "done"];
+    arrlist.forEach((list) => {
+        let theClass;
+        let idForm;
+        if (list == "todo") {
+            theClass = "todo";
+            idForm = "#checkBoxForm";
+        } else {
+            theClass = "done";
+            idForm = "#doneForm";
+        }
+        let target = document.querySelectorAll(`${idForm} ul li input`);
+        target.forEach((input, i) => {
+            let parentTarget = input.parentNode;
+            input.name = `${i}`;
+            input.id = `${theClass}${i}`;
+            input.class = `${theClass}`;
+            parentTarget.id = `li${theClass}${i}`
+        })
     })
 }
 
@@ -88,8 +87,7 @@ document.querySelectorAll(".todo").forEach(checkBoxTodo => {
             let target = document.querySelector('#doneForm ul li');
             target.parentNode.insertBefore(toMove, target);
             // Reorganization of the data: name, id, class!
-            reorganization("todo");
-            reorganization("done");
+            reorganization();
         } catch (error) {
             console.error(error);
         }
