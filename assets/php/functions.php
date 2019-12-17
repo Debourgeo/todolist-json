@@ -72,10 +72,10 @@ function form_sanitizion_and_validation()
         ];
 
         if (!filter_var($value, $arr_validation_filters[$key], $options)) {
-
-            $arr_errors[$key] = "Invalid field";
-            $is_form_valid = false;
-
+            if (!(($key == ('newID')) | ($key == ('oldID') | (($key == 'task_to_add') && ($value == null))))) {
+                $arr_errors[$key] = "Invalid field";
+                $is_form_valid = false;
+            }
         }
     }
 
@@ -90,6 +90,8 @@ function form_sanitizion_and_validation()
     } else {
 
         echo "check your content ";
+        print_r($arr_errors);
+        print_r($sanitized_form);
 
     }
 }

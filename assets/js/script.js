@@ -15,13 +15,13 @@ function onDrop(event) {
             newID = dropzone.childNodes[0].id;
             dropzone.insertBefore(draggableElement, dropzone.childNodes[0]);
         } else if (dropzone.classList.contains("label")) {
-            newID = dropzoneParent.nextSibling.id;
+            newID = dropzoneParent.id;
             dropzoneParent.parentNode.insertBefore(
                 draggableElement,
                 dropzoneParent.nextSibling
             );
         } else {
-            newID = dropzone.nextSibling.id;
+            newID = dropzone.id;
             dropzone.parentNode.insertBefore(
                 draggableElement,
                 dropzone.nextSibling
