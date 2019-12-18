@@ -1,78 +1,4 @@
-// Function to submit the form
-
-function onDrop(event) {
-    let id = event.dataTransfer.getData("text");
-
-    let draggableElement = document.getElementById(id);
-    let dropzone = event.target;
-
-    let oldID = id;
-    let newID;
-
-    let dropzoneParent = dropzone.parentNode;
-    if (dropzone.classList.contains("dropable")) {
-        if (dropzone.classList.contains("ul")) {
-            newID = dropzone.childNodes[0].id;
-            dropzone.insertBefore(draggableElement, dropzone.childNodes[0]);
-        } else if (dropzone.classList.contains("label")) {
-            newID = dropzoneParent.id;
-            dropzoneParent.parentNode.insertBefore(
-                draggableElement,
-                dropzoneParent.nextSibling
-            );
-        } else {
-            newID = dropzone.id;
-            dropzone.parentNode.insertBefore(
-                draggableElement,
-                dropzone.nextSibling
-            );
-        }
-        const data = new FormData();
-        data.append("oldID", oldID);
-        data.append("newID", newID);
-        try {
-            fetch("assets/php/reorder_DB.php", {
-                method: "POST",
-                body: data
-            });
-        } catch (error) {
-            console.error(error);
-        }
-        // Reorganization of the data: name, id, class!
-        reorganization();
-    }
-}
-
-function onDragOver(event) {
-    event.preventDefault();
-}
-
-function onDragStart(event) {
-    event.dataTransfer.setData("text/plain", event.target.id);
-}
-
-// get position of elements before and after
-
-const getPositions = () => {};
-
-// Here AJAX submission
-
-/*
-
-Prevent submission by button
-Submission by ticking the checkbox
-
-Prevent the screen refresh
-Update the data 
-
-*/
-
-const checkBoxForm = document.getElementById("checkBoxForm");
-
-// Desactivate the submit button and hiding it.
-// The form will be submit by ticking the checkbox
-
-// Remake all the frame of the list
+// Reorganise the frame of lists
 const reorganization = () => {
     let arrlist = ["todo", "done"];
     arrlist.forEach(list => {
@@ -96,6 +22,64 @@ const reorganization = () => {
     });
 };
 
+// ******* Drag and Drop function ******* //
+
+function onDragStart(event) {
+    event.dataTransfer.setData("text/plain", event.target.id);
+}
+
+function onDragOver(event) {
+    event.preventDefault();
+}
+
+function onDrop(event) {
+    const id = event.dataTransfer.getData("text");
+
+    const draggableElement = document.getElementById(id);
+    const dropzone = event.target;
+
+    const oldID = id;
+    let newID;
+
+    let dropzoneParent = dropzone.parentNode;
+    if (dropzone.classList.contains("dropable")) {
+        if (dropzone.classList.contains("ul")) {
+            // Thx Kevin for the "children"
+            newID = dropzone.children[0].id;
+            dropzone.insertBefore(draggableElement, dropzone.childNodes[0]);
+        } else if (dropzone.classList.contains("label")) {
+            newID = dropzoneParent.nextSibling.id;
+            newID == undefined ? newID = dropzoneParent.id : 0;
+            dropzoneParent.parentNode.insertBefore(
+                draggableElement,
+                dropzoneParent.nextSibling
+            );
+        } else {
+            newID = dropzone.nextSibling.id;
+            newID == undefined ? newID = dropzone.id : 0;
+            dropzone.parentNode.insertBefore(
+                draggableElement,
+                dropzone.nextSibling
+            );
+        }
+        const data = new FormData();
+        data.append("oldID", oldID);
+        data.append("newID", newID);
+        try {
+            fetch("assets/php/reorder_DB.php", {
+                method: "POST",
+                body: data
+            });
+        } catch (error) {
+            console.error(error);
+        }
+        // Reorganization of the data: name, id, class!
+        reorganization();
+    }
+}
+
+// AJAX Submit on ticking the box of the "Todo"
+const checkBoxForm = document.getElementById("checkBoxForm");
 document.querySelectorAll(".todo").forEach(checkBoxTodo => {
     checkBoxTodo.addEventListener("click", () => {
         // Sending formData to the back to operate on the DataBase

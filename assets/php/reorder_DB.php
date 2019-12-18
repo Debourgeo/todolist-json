@@ -15,9 +15,13 @@ if (!empty($data)) {
     preg_match('/\d+/', $new_ID, $newPosition);
     $oldPosition = $oldPosition[0];
     $newPosition = $newPosition[0];
+    // Splice is changing the index of the array making the newposition right.
+    // But it doesn't if it operates on different list.
+    // So we correct the new position with a +1 to have the same behavior.
+    $newPosition = ($old_Name_List == $new_Name_List) ? $newPosition : ($newPosition + 1);
     $toMove = array_splice($json_data[$old_Name_List[0]], $oldPosition, 1);
     array_splice($json_data[$new_Name_List[0]], $newPosition, 0, $toMove);
     $updated_json_data = json_encode($json_data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     file_put_contents($json_file, $updated_json_data);
 }
-redirect('../../content.php');
+// redirect('../../content.php');
